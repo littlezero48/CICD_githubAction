@@ -68,7 +68,6 @@ jobs:                                                             # 수행할 �
           --ignore-hidden-files \
           --s3-location s3://$S3_BUCKET_NAME/$GITHUB_SHA.zip \
           --source .
-          --region ap-northeast-2
 
       # S3 버킷에 올린 파일로 CodeDeploy 실행
     - name: Deploy to AWS EC2 from S3
