@@ -3,7 +3,7 @@
 
 #-------------------------------------------------- 변수 선언 START
 PROJECT_ROOT="/home/ubuntu/app"                                             # 종료할 jar파일 위치
-JAR_FILE="$PROJECT_ROOT/spring-webapp.jar"                                  # 종료할 jar파일 이름
+JAR_FILE="$PROJECT_ROOT/CICD_githubActions-0.0.1-SNAPSHOT.jar"                                  # 종료할 jar파일 이름
 
 DEPLOY_LOG="$PROJECT_ROOT/deploy.log"                                       # 로그파일 생성
 
