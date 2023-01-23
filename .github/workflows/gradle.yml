@@ -71,9 +71,9 @@ jobs:                                                             # 수행할 �
 
       # S3 버킷에 올린 파일로 CodeDeploy 실행
     - name: Deploy to AWS EC2 from S3
-      run: aws deploy create-deployment --application-name $CODE_DEPLOY_APPLICATION_NAME --deployment-config-name CodeDeployDefault.AllAtOnce --deployment-group-name $CODE_DEPLOY_DEPLOYMENT_GROUP_NAME --s3-location bucket=$S3_BUCKET_NAME,key=$GITHUB_SHA.zip,bundleType=zip
-#        aws deploy create-deployment \
-#          --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
-#          --deployment-config-name CodeDeployDefault.AllAtOnce \
-#          --deployment-group-name ${{ env.CODE_DEPLOY_DEPLOYMENT_GROUP_NAME }} \
-#          --s3-location bucket=$S3_BUCKET_NAME,key=$GITHUB_SHA.zip,bundleType=zip
+      run: | 
+        aws deploy create-deployment \
+          --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
+          --deployment-config-name CodeDeployDefault.AllAtOnce \
+          --deployment-group-name ${{ env.CODE_DEPLOY_DEPLOYMENT_GROUP_NAME }} \
+          --s3-location bucket=$S3_BUCKET_NAME,key=$GITHUB_SHA.zip,bundleType=zip
