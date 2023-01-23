@@ -64,6 +64,7 @@ jobs:                                                             # 수행할 �
     - name: Upload to AWS S3
       run: |
         aws deploy push \
+          --region ap-northeast-2
           --application-name ${{ env.CODE_DEPLOY_APPLICATION_NAME }} \
           --ignore-hidden-files \
           --s3-location s3://$S3_BUCKET_NAME/$GITHUB_SHA.zip \
