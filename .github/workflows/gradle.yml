@@ -16,7 +16,7 @@ on:                                                               # 워크플로
 env:                                                              # 환경 설정
   AWS_REGION: ap-northeast-2
   S3_BUCKET_NAME: littlezerobucket
-  CODE_DEPLOY_APPLICATION_NAME: CICD_githubActions
+  CODE_DEPLOY_APPLICATION_NAME: my-codedeploy-app
   CODE_DEPLOY_DEPLOYMENT_GROUP_NAME: littlezero-ec2-deploy        # IAM의 CodeDeploy용 역할
 
 permissions:                                                      # 권한 설정
