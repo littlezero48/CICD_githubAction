@@ -11,10 +11,17 @@ DEPLOY_LOG="$PROJECT_ROOT/deploy.log"                                       # �
 TIME_NOW=$(date +%c)                                                        # 현재시간
 
 # 현재 구동 중인 애플리케이션 pid 확인
-CURRENT_PID=$(pgrep $JAR_FILENAME)
+CURRENT_PID=$(ps -ef | grep "$JAR_NAME" | grep -v 'grep' | awk '{print $2}')
 #-------------------------------------------------- 변수 선언 END
 
 #-------------------------------------------------- 명령어 START
+
+echo "============================================================ log"
+echo "$TIME_NOW > JAR_FILENAME : $JAR_FILENAME" >> $DEPLOY_LOG
+echo "$TIME_NOW > JAR_FILEPATH : $JAR_FILEPATH" >> $DEPLOY_LOG
+echo "$TIME_NOW > CURRENT_PID : $CURRENT_PID" >> $DEPLOY_LOG
+echo "============================================================ log"
+
 # 프로세스가 켜져 있으면 종료
 if [ -z $CURRENT_PID ]; then
   # 리눅스에서 > 와 >> 의 차이 : > (뒤에 나오는 파일에 write or overwrite), >> (뒤에 나오는 파일에 추가 append)

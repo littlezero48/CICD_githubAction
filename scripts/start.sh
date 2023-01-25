@@ -16,5 +16,5 @@ TIME_NOW=$(date +%c)
 echo "$TIME_NOW > $JAR_FILENAME 파일 실행" >> $DEPLOY_LOG
 nohup java -jar $JAR_FILEPATH > $APP_LOG 2> $ERROR_LOG &                          # 계속 실행되게 nohup으로 실행
 
-CURRENT_PID=$(pgrep $JAR_FILENAME)                                           # nohup으로 실행 후 프로세스 아이디를 얻음
+CURRENT_PID=$(ps -ef | grep "$JAR_NAME" | grep -v 'grep' | awk '{print $2}')                                           # nohup으로 실행 후 프로세스 아이디를 얻음
 echo "$TIME_NOW > 실행된 프로세스 아이디 : $CURRENT_PID" >> $DEPLOY_LOG
