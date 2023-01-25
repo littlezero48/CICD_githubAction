@@ -3,15 +3,15 @@
 
 #-------------------------------------------------- 변수 선언 START
 PROJECT_ROOT="/home/ubuntu/app"                                             # 종료할 jar파일 위치
-JAR_FILENAME=$(ls -tr $PROJECT_ROOT/ | grep 'SNAPSHOT.jar' | tail -n 1)
-JAR_FILE="$PROJECT_ROOT/build/libs/$JAR_FILENAME"
+JAR_FILENAME=$(ls -tr $PROJECT_ROOT/build/libs/ | grep 'SNAPSHOT.jar' | tail -n 1)
+JAR_FILEPATH="$PROJECT_ROOT/build/libs/$JAR_FILENAME"
 
 DEPLOY_LOG="$PROJECT_ROOT/deploy.log"                                       # 로그파일 생성
 
 TIME_NOW=$(date +%c)                                                        # 현재시간
 
 # 현재 구동 중인 애플리케이션 pid 확인
-CURRENT_PID=$(pgrep -f $JAR_FILE)
+CURRENT_PID=$(ps -ef | grep $JAR_FILENAME | awk '{print $2}')
 #-------------------------------------------------- 변수 선언 END
 
 #-------------------------------------------------- 명령어 START
