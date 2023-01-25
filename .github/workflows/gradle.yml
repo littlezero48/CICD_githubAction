@@ -44,7 +44,6 @@ jobs:                                                             # 수행할 �
       # 중요 키 정보 있는 properties 따로 관리
     - name: make application_secret.properties
       run: |
-        mkdir -p ./src/main/resources
         cd ./src/main/resources
         touch ./application_secret.properties                                      
         echo "${{ secrets.PROPERTIES_SECRET }}" > ./application_secret.properties
