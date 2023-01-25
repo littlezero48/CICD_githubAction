@@ -45,6 +45,7 @@ jobs:                                                             # 수행할 �
     - name: make application_secret.properties
       if: true
       run: |
+        mkdir -p ./src/main/resources
         cd ./src/main/resources
         touch ./application_secret.properties                                      
         echo "${{ secrets.PROPERTIES_SECRET }}" > ./application_secret.properties
