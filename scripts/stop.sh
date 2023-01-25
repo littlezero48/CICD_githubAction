@@ -3,8 +3,8 @@
 
 #-------------------------------------------------- 변수 선언 START
 PROJECT_ROOT="/home/ubuntu/app"                                             # 종료할 jar파일 위치
-JAR_FILE=$(ls -tr $PROJECT_ROOT/*SNAPSHOT.jar)
-#JAR_FILE="$PROJECT_ROOT/CICD_githubActions-0.0.1-SNAPSHOT.jar"
+JAR_FILENAME=$(ls -tr $PROJECT_ROOT/ | grep 'SNAPSHOT.jar' | tail -n 1)
+JAR_FILE="$PROJECT_ROOT/build/libs/$JAR_FILENAME"
 
 DEPLOY_LOG="$PROJECT_ROOT/deploy.log"                                       # 로그파일 생성
 

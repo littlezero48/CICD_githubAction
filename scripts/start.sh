@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 PROJECT_ROOT="/home/ubuntu/app"
-JAR_FILE=$(ls -tr $PROJECT_ROOT/*SNAPSHOT.jar | tail -n 1)    # tail은 그냥 실시간 로그 찍기 위해 추적
-#JAR_FILE="$PROJECT_ROOT/CICD_githubActions-0.0.1-SNAPSHOT.jar"
+JAR_FILENAME=$(ls -tr $PROJECT_ROOT/ | grep 'SNAPSHOT.jar' | tail -n 1)    # tail은 그냥 실시간 로그 찍기 위해 추적
+JAR_FILE="$PROJECT_ROOT/build/libs/$JAR_FILENAME"
 
 APP_LOG="$PROJECT_ROOT/application.log"
 ERROR_LOG="$PROJECT_ROOT/error.log"
@@ -10,9 +10,9 @@ DEPLOY_LOG="$PROJECT_ROOT/deploy.log"
 
 TIME_NOW=$(date +%c)
 
-# build 파일 복사
-echo "$TIME_NOW > $JAR_FILE 파일 복사" >> $DEPLOY_LOG
-cp $PROJECT_ROOT/build/libs/*SNAPSHOT.jar $JAR_FILE
+## build 파일 복사
+#echo "$TIME_NOW > $JAR_FILE 파일 복사" >> $DEPLOY_LOG
+#cp $PROJECT_ROOT/build/libs/*SNAPSHOT.jar $JAR_FILE
 
 # jar 파일 실행
 echo "$TIME_NOW > $JAR_FILE 파일 실행" >> $DEPLOY_LOG
