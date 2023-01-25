@@ -46,6 +46,21 @@ jobs:                                                             # 수행할 �
       run: chmod +x ./gradlew
       # Build
 
+
+      # 중요 키 정보 있는 properties 따로 관리
+    - name: make application_secret.properties
+      if: true
+      run: |
+        cd ./src/main/resources
+        touch ./application_secret.properties                                      
+        echo "${{ secrets.PROPERTIES_SECRET }}" > ./application_secret.properties
+      shell: bash
+
+    - uses: actions/upload-artifact@v2
+      with:
+        name: application_secret.properties
+        path: ./src/main/resources/application_secret.properties
+
     # BUILD
     - name: Build with Gradle                                     # gradle로 빌드 실행
       uses: gradle/gradle-build-action@67421db6bd0bf253fb4bd25b31ebb98943c375e1
