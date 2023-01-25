@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 PROJECT_ROOT="/home/ubuntu/app"
-JAR_FILE=$(ls $PROJECT_ROOT/*SNAPSHOT.jar | tail -n 1)    # tail은 그냥 실시간 로그 찍기 위해 추적
+JAR_FILE=$(ls -tr $PROJECT_ROOT/*.jar | tail -n 1)    # tail은 그냥 실시간 로그 찍기 위해 추적
 
 APP_LOG="$PROJECT_ROOT/application.log"
 ERROR_LOG="$PROJECT_ROOT/error.log"
