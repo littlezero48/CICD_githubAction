@@ -42,11 +42,11 @@ jobs:                                                             # 수행할 �
         distribution: 'temurin'
 
       # 중요 키 정보 있는 properties 따로 관리
-    - name: make application_secret.properties
+    - name: make application-secret.properties
       run: |
         cd ./src/main/resources
-        touch ./application_secret.properties                                      
-        echo "${{ secrets.PROPERTIES_SECRET }}" > ./application_secret.properties
+        touch ./application-secret.properties                                      
+        echo "${{ secrets.PROPERTIES_SECRET }}" > ./application-secret.properties
       shell: bash
 
     # BUILD 권한 부여
