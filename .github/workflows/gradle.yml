@@ -43,7 +43,6 @@ jobs:                                                             # 수행할 �
 
       # 중요 키 정보 있는 properties 따로 관리
     - name: make application_secret.properties
-      if: true
       run: |
         mkdir -p ./src/main/resources
         cd ./src/main/resources
