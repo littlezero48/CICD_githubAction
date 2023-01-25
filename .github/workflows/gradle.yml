@@ -41,12 +41,6 @@ jobs:                                                             # 수행할 �
         java-version: '11'
         distribution: 'temurin'
 
-    # BUILD 권한 부여
-    - name: Grant execute permission for gradlew
-      run: chmod +x ./gradlew
-      # Build
-
-
       # 중요 키 정보 있는 properties 따로 관리
     - name: make application_secret.properties
       if: true
@@ -56,10 +50,9 @@ jobs:                                                             # 수행할 �
         echo "${{ secrets.PROPERTIES_SECRET }}" > ./application_secret.properties
       shell: bash
 
-    - uses: actions/upload-artifact@v2
-      with:
-        name: application_secret.properties
-        path: ./src/main/resources/application_secret.properties
+    # BUILD 권한 부여
+    - name: Grant execute permission for gradlew
+      run: chmod +x ./gradlew
 
     # BUILD
     - name: Build with Gradle                                     # gradle로 빌드 실행
