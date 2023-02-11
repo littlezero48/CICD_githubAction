@@ -1,3 +1,3 @@
 # CICD_githubAction
 
-CI/CD GithubAction을 연습
+CI/CD GithubAction / Code Deploy 를 연습
